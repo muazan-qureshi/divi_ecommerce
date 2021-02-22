@@ -29,7 +29,7 @@
 </head>
 
 <body>
-  <!-- 
+  <!--
   <div id="preloder">
     <div class="loader"></div>
   </div> -->
@@ -59,9 +59,9 @@
               <div class="up-item">
                 <div class="shopping-card">
                   <i class="flaticon-bag"></i>
-                  <span>0</span>
+                  <span><?php echo count($_SESSION['mycart']) ?></span>
                 </div>
-                <a href="#">Shopping Cart</a>
+                <a href="cart.php">Shopping Cart</a>
               </div>
             </div>
           </div>

@@ -1,4 +1,7 @@
-<?php include('header.php') ?>
+<?php include('header.php')
+
+
+?>
 
 
 <div class="page-top-info">
@@ -29,11 +32,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+                              <?php
+                              foreach ($_SESSION['mycart'] as $c) {
+                              foreach ($avada->getproduct_byid($c) as $data){
+                                $img = json_decode($data['image']);
+                                ?>
                                 <tr>
                                     <td class="product-col">
-                                        <img src="img/cart/1.jpg" alt="">
+                                        <img src="../admin/uploads/products/<?php echo $img[0] ?>" alt="">
                                         <div class="pc-title">
-                                            <h4>Animal Print Dress</h4>
+                                            <h4><?php echo $data['name'] ?></h4>
                                             <p>$45.90</p>
                                         </div>
                                     </td>
@@ -51,50 +59,9 @@
                                         <h4>$45.90</h4>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="product-col">
-                                        <img src="img/cart/2.jpg" alt="">
-                                        <div class="pc-title">
-                                            <h4>Ruffle Pink Top</h4>
-                                            <p>$45.90</p>
-                                        </div>
-                                    </td>
-                                    <td class="quy-col">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="size-col">
-                                        <h4>Size M</h4>
-                                    </td>
-                                    <td class="total-col">
-                                        <h4>$45.90</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="product-col">
-                                        <img src="img/cart/3.jpg" alt="">
-                                        <div class="pc-title">
-                                            <h4>Skinny Jeans</h4>
-                                            <p>$45.90</p>
-                                        </div>
-                                    </td>
-                                    <td class="quy-col">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="size-col">
-                                        <h4>Size M</h4>
-                                    </td>
-                                    <td class="total-col">
-                                        <h4>$45.90</h4>
-                                    </td>
-                                </tr>
+                                <?php  }
+                              }
+                                 ?>
                             </tbody>
                         </table>
                     </div>
